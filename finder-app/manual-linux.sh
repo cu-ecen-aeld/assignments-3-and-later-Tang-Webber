@@ -95,7 +95,6 @@ cp ${SYSROOT}/lib64/libc.so.6 lib64/
 
 # Make device nodes
 cd ${OUTDIR}/rootfs
-echo "$whoami"
 #sudo mknod -m 666 ${OUTDIR}/rootfs/dev/null c 1 3
 sudo mknod /tmp/aesd-autograder/rootfs/dev/null c 1 3
 sudo chmod 666 /tmp/aesd-autograder/rootfs/dev/null 
