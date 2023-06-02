@@ -95,10 +95,13 @@ cp ${SYSROOT}/lib64/libc.so.6 lib64/
 
 # Make device nodes
 cd ${OUTDIR}/rootfs
+sudo su
 sudo mknod -m 666 dev/null c 1 3
 sudo mknod -m 600 dev/console c 5 1
+exit
 
 # Clean and build the writer utility
+echo "***Clean and build the writer utility***"
 cd $FINDER_APP_DIR
 make
 make clean
@@ -113,6 +116,8 @@ cp ${FINDER_APP_DIR}/finder-test.sh $OUTDIR/rootfs/home/
 cp ${FINDER_APP_DIR}/autorun-qemu.sh $OUTDIR/rootfs/home/
 cp -r ${FINDER_APP_DIR}/conf/ $OUTDIR/rootfs/
 cp -r ${FINDER_APP_DIR}/conf $OUTDIR/rootfs/home/
+
+echo "***done copy***"
 
 # Chown the root directory
 cd $OUTDIR/rootfs
